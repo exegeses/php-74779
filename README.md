@@ -10,8 +10,8 @@
 > Código 74779 |    
 > sensei: Marcos Pinardi |    
 
-## Requisitos
-
+## Requisitos  
+### De software:  
  1. Editor de código o IDE  
 > ![PhpStorm](https://img.shields.io/badge/PhpStorm-675AF6?style=for-the-badge&logo=phpstorm&logoColor=white)  
 > ![Visual Studio Code](https://custom-icon-badges.demolab.com/badge/Visual%20Studio%20Code-0078d7.svg?logo=vsc&logoColor=white)  
