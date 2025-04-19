@@ -32,6 +32,7 @@
 </svg>  
 > https://herd.laravel.com/
 
+----
 > Alternativos:  
 >> Xampp https://www.apachefriends.org/es/index.html  
 >> MAMP https://www.mamp.info/de/mac/  
