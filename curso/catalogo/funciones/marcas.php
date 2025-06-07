@@ -36,3 +36,24 @@
         header('Location: adminMarcas.php');
         return $resultado;
     }
+
+    /**
+     * función para mostrar los datos de una marca filtrada por su ID
+     * @return array (arre y asociativo con los datos de la marca)
+     */
+    function verMarcaPorID() : false | array
+    {
+        if ( !isset($_GET['idMarca'])) {
+            $_SESSION['css'] = 'warning';
+            $_SESSION['mensaje'] = 'Marca no encontrada';
+            header('Location: adminMarcas.php');
+            return false;
+        }
+        $idMarca = $_GET['idMarca'];
+        $link = conectar();
+        $sql = "SELECT * 
+                    FROM marcas 
+                    WHERE idMarca = ".$idMarca;
+        $resultado = mysqli_query($link, $sql);
+        return mysqli_fetch_assoc($resultado);
+    }

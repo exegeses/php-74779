@@ -1,5 +1,6 @@
 <?php
     require 'config/config.php';
+
     include 'layouts/header.php';
     include 'layouts/nav.php';
 ?>
