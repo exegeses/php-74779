@@ -8,7 +8,7 @@
         <h1>Alta de una marca</h1>
 
         <div class="alert p-4 col-8 mx-auto shadow">
-            <form action="#!" method="post">
+            <form action="agregarMarca.php" method="post">
                 <div class="form-group">
                     <label for="mkNombre">Nombre de la Marca</label>
                     <input type="text" name="mkNombre"
