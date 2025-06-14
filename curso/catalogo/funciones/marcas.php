@@ -43,7 +43,7 @@
      */
     function verMarcaPorID() : false | array
     {
-        if ( !isset($_GET['idMarca'])) {
+        if ( !isset($_GET['idMarca'])) { // no está en la URL
             $_SESSION['css'] = 'warning';
             $_SESSION['mensaje'] = 'Marca no encontrada';
             header('Location: adminMarcas.php');
@@ -55,5 +55,40 @@
                     FROM marcas 
                     WHERE idMarca = ".$idMarca;
         $resultado = mysqli_query($link, $sql);
+        // contar cantidad de registros obtenidos
+            //si no encuentra ninguno
+        if (!mysqli_num_rows($resultado)){
+            $_SESSION['css'] = 'warning';
+            $_SESSION['mensaje'] = 'Marca no encontrada';
+            header('Location: adminMarcas.php');
+            return false;
+        }
+        // retornamos array asociativo
         return mysqli_fetch_assoc($resultado);
+    }
+
+    function modificarMarca() : bool
+    {
+        $mkNombre = $_POST['mkNombre'];
+        $idMarca = $_POST['idMarca'];
+        // control de errores
+        try {
+            $link = conectar();
+            $sql = "UPDATE marcas 
+                      SET mkNombre = '".$mkNombre."'
+                      WHERE idMarca = ".$idMarca;
+            $resultado = mysqli_query($link, $sql);
+            //notificación
+            $_SESSION['css'] = 'success';
+            $_SESSION['mensaje'] = 'Marca: '.$mkNombre.' modificada correctamente';
+        }
+        catch (Exception $e){
+            //notificaciones
+            $_SESSION['css'] = 'danger';
+            $_SESSION['mensaje'] = 'No se pudo modificar la marca: '.$mkNombre;
+            $resultado = false;
+        }
+        //redireccion
+        header('Location: adminMarcas.php');
+        return $resultado;
     }
