@@ -92,3 +92,51 @@
         header('Location: adminMarcas.php');
         return $resultado;
     }
+
+    function checkProductoXMarca() : void
+    {
+        if ( !isset($_GET['idMarca'])) { // no está en la URL
+            $_SESSION['css'] = 'warning';
+            $_SESSION['mensaje'] = 'Marca no encontrada';
+            header('Location: adminMarcas.php');
+        }
+        $idMarca = $_GET['idMarca'];
+        $link = conectar();
+        $sql = "SELECT mkNombre 
+                    FROM productos p
+                    join marcas m 
+                        on p.idMarca = m.idMarca
+                    WHERE p.idMarca =".$idMarca;
+        $resultado = mysqli_query($link, $sql);
+        $marca = mysqli_fetch_assoc($resultado);
+        // contar la cantidad de resultados de una consulta
+        if( mysqli_num_rows($resultado) ){
+            $_SESSION['css'] = 'warning';
+            $_SESSION['mensaje'] = 'No se puede eliminar la marca: '.$marca['mkNombre'].' porque tiene productos asociados';
+            header('Location: adminMarcas.php');
+        }
+    }
+
+    function eliminarMarca() : bool
+    {
+        // capturamos datos enviados por el form
+        $idMarca = $_POST['idMarca'];
+        $mkNombre = $_POST['mkNombre'];
+        $link = conectar();
+        $sql = "DELETE 
+                   FROM marcas 
+                   WHERE idMarca = ".$idMarca;
+        // control de errores
+        try {
+            $resultado = mysqli_query($link, $sql);
+            $_SESSION['css'] = 'success';
+            $_SESSION['mensaje'] = 'Marca: '.$mkNombre.' eliminada correctamente';
+        }
+        catch (Exception $e){
+            $resultado = false;
+            $_SESSION['css'] = 'danger';
+            $_SESSION['mensaje'] = 'No se pudo eliminar la marca: '.$mkNombre;
+        }
+        header('Location: adminMarcas.php');
+        return $resultado;
+    }
