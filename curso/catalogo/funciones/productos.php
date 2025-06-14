@@ -16,3 +16,16 @@
                     ORDER BY idProducto DESC";
         return mysqli_query($link, $query);
     }
+
+    function agregarProducto() : void
+    {
+        // capturamos datos enviados por el formulario
+        $prdNombre = $_POST['prdNombre'];
+        $prdPrecio = $_POST['prdPrecio'];
+        $idMarca = $_POST['idMarca'];
+        $idCategoria = $_POST['idCategoria'];
+        $prdDescripcion = $_POST['prdDescripcion'];
+        // subir imagen *
+
+        $link = conectar();
+    }

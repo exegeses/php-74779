@@ -49,9 +49,13 @@
                     <label for="idCategoria">Categoría</label>
                     <select class="form-select" name="idCategoria" id="idCategoria" required>
                         <option value="">Seleccione una categoría</option>
-
-                        <option value="">categoría</option>
-
+<?php
+            while ($categoria = mysqli_fetch_array($categorias)) {
+?>
+                        <option value="<?= $categoria['idCategoria'] ?>"><?= $categoria['catNombre'] ?></option>
+<?php
+            }
+?>
                     </select>
                 </div>
 
