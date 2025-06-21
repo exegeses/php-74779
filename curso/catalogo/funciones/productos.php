@@ -52,12 +52,14 @@ function agregarProducto() : bool
         $sql = "INSERT INTO productos
                   VALUES
                       (
+                         default,
                          '".$prdNombre."', 
                          ".$prdPrecio.",
                          ".$idMarca.",
                          ".$idCategoria.",
                          '".$prdDescripcion."',
-                         '".$prdImagen."'                       
+                         '".$prdImagen."',
+                         default                       
                       )";
         try {
             $resultado = mysqli_query($link, $sql);
@@ -65,6 +67,7 @@ function agregarProducto() : bool
             $_SESSION['css'] = "success";
         }
         catch(Exception $e){
+            // die( $e->getMessage() );
             $_SESSION['mensaje'] = 'No se pudo agregar el producto: '.$prdNombre;
             $_SESSION['css'] = "danger";
             $resultado = false;
