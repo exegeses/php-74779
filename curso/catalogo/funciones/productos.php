@@ -60,6 +60,18 @@ function subirImagen() : string
     return $prdImagen;
 }
 
+function borrarImagen() : void
+{
+    $path = 'productos/';
+    $prdImagen = $_POST['prdImagen'];
+    if(
+        $prdImagen != 'noDisponible.svg'
+            &&
+        file_exists($path.$prdImagen)
+    ){
+        unlink($path.$prdImagen);
+    }
+}
 
 function agregarProducto() : bool
     {
@@ -131,4 +143,27 @@ function agregarProducto() : bool
         }
         header('location: adminProductos.php');
         return  $resultado;
+    }
+
+    function eliminarProducto() : bool
+    {
+        $idProducto = $_POST['idProducto'];
+        $prdNombre = $_POST['prdNombre'];
+        $link = conectar();
+        try {
+            $sql = "DELETE FROM productos
+                       WHERE idProducto = ".$idProducto;
+            $resultado = mysqli_query($link, $sql);
+            $_SESSION['mensaje'] = "Producto: ".$prdNombre." eliminado correctamente";
+            $_SESSION['css'] = "success";
+            // borrado de imagen
+            borrarImagen();
+        }
+        catch(Exception $e){
+            $_SESSION['mensaje'] = 'No se pudo eliminar el producto: '.$prdNombre;
+            $_SESSION['css'] = "danger";
+            $resultado = false;
+        }
+        header('location: adminProductos.php');
+        return $resultado;
     }

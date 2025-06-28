@@ -1,5 +1,8 @@
 <?php
     require 'config/config.php';
+    require 'funciones/conexion.php';
+    require 'funciones/productos.php';
+    $producto = verProductoPorID();
     include 'layouts/header.php';
     include 'layouts/nav.php';
 ?>
@@ -10,17 +13,26 @@
         <div class="card mx-auto border-danger bg-danger-subtle text-danger-emphasis w-640">
             <div class="row g-0">
                 <div class="col-md-4 py-3 px-2">
-                    <img src="productos/noDisponible.svg" class="img-fluid rounded-start">
+                    <img src="productos/<?= $producto['prdImagen'] ?>" class="img-fluid rounded-start">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body p-3">
-                        <span class="fs-4 sep d-block">prdNombre</span>
-                        <span class="d-block sep m-3">
-                            <?= 'mkNombre' ?> -
-                            <?= 'catNombre' ?>
+                        <span class="fs-4 sep d-block">
+                            <?= $producto['prdNombre'] ?>
                         </span>
-                        <span class="d-block sep">$<?= 'prdPrecio' ?></span>
+                        <span class="d-block sep m-3">
+                            <?= $producto['mkNombre'] ?> -
+                            <?= $producto['catNombre'] ?>
+                        </span>
+                        <span class="d-block sep">$<?= $producto['precio'] ?></span>
                         <form action="eliminarProducto.php" method="post">
+
+                            <input type="hidden" name="idProducto"
+                                    value="<?= $producto['idProducto'] ?>">
+                            <input type="hidden" name="prdNombre"
+                                    value="<?= $producto['prdNombre'] ?>">
+                            <input type="hidden" name="prdImagen"
+                                    value="<?= $producto['prdImagen'] ?>">
 
                             <button class="btn btn-danger my-3 px-4">Confirmar baja</button>
                             <a href="adminProductos.php" class="btn btn-outline-secondary sep">
