@@ -51,7 +51,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href="#!" class="btn btn-outline-secondary">
+                        <a href="formEliminarProducto.php" class="btn btn-outline-secondary">
                             Eliminar
                         </a>
                     </td>
