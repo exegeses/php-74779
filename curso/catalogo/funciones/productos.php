@@ -17,10 +17,33 @@
         return mysqli_query($link, $query);
     }
 
+    function verProductoPorID() : array
+    {
+        $idProducto = $_GET['idProducto'];
+        $link = conectar();
+        $query = "SELECT * 
+                    FROM productos 
+                    JOIN marcas 
+                        ON productos.idMarca = marcas.idMarca 
+                    JOIN categorias
+                        ON productos.idCategoria = categorias.idCategoria
+                    WHERE idProducto = ".$idProducto;
+        $resultado = mysqli_query($link, $query);
+        return mysqli_fetch_assoc($resultado);
+    }
+
 function subirImagen() : string
 {
-    // si no se envió imagen
-    $prdImagen = 'noDisponible.svg';
+    // si no se envió imagen agregar()
+    // $prdImagen = 'noDisponible.svg';
+
+    // si no se envió imagen modificar()
+    /*if ( isset($_POST['imgActual']) ) {
+        $prdImagen = $_POST['imgActual'];
+    }*/
+    // $prdImagen = ( isset($_POST['imgActual']) ) ? $_POST['imgActual'] : $prdImagen;
+    $prdImagen = $_POST['imgActual'] ?? 'noDisponible.svg';
+
 
     // si se envió imagen y NO HAY ERRORES
     if( $_FILES['prdImagen']['error'] == 0 ){
@@ -74,4 +97,38 @@ function agregarProducto() : bool
         }
         header('location: adminProductos.php');
         return $resultado;
+    }
+
+    function modificarProducto() : bool
+    {
+        $prdNombre = $_POST['prdNombre'];
+        $prdPrecio = $_POST['prdPrecio'];
+        $idMarca = $_POST['idMarca'];
+        $idCategoria = $_POST['idCategoria'];
+        $prdDescripcion = $_POST['prdDescripcion'];
+        $prdImagen = subirImagen();
+        $idProducto = $_POST['idProducto'];
+
+        $link = conectar();
+        $sql = "UPDATE productos 
+                   SET 
+                        prdNombre = '".$prdNombre."',   
+                        precio = ".$prdPrecio.",
+                        idMarca = ".$idMarca.",
+                        idCategoria = ".$idCategoria.",
+                        prdDescripcion = '".$prdDescripcion."',
+                        prdImagen = '".$prdImagen."'
+                   WHERE idProducto = ".$idProducto;
+        try {
+            $resultado = mysqli_query($link, $sql);
+            $_SESSION['mensaje'] = "Producto: ".$prdNombre." modificado correctamente";
+            $_SESSION['css'] = "success";
+        }
+        catch(Exception $e){
+            $resultado = false;
+            $_SESSION['mensaje'] = 'No se pudo modificar el producto: '.$prdNombre;
+            $_SESSION['css'] = "danger";
+        }
+        header('location: adminProductos.php');
+        return  $resultado;
     }
