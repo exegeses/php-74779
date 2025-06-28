@@ -46,7 +46,7 @@
                     <td><?= $producto['mkNombre'] ?></td>
                     <td><?= $producto['catNombre'] ?></td>
                     <td>
-                        <a href="#!" class="btn btn-outline-secondary">
+                        <a href="formModificarProducto.php" class="btn btn-outline-secondary">
                             Modificar
                         </a>
                     </td>
