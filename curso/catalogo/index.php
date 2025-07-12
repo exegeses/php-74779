@@ -18,6 +18,11 @@
 <?php include 'layouts/nav.php'; ?>
 <!-- fin nav -->
 
+<!-- notificaciones -->
+<?php
+include 'layouts/notificaciones.php';
+?>
+
 <div class="container-fluid">
     <h1 class="section-title">Catálogo de Productos</h1>
 
