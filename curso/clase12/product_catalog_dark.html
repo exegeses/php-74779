@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        
+        .product-card {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1f1f1f 100%);
+            border: 1px solid #3d3d3d;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: #555;
+        }
+        
+        .product-image {
+            height: 200px;
+            background: linear-gradient(45deg, #333, #555);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            filter: brightness(0.9);
+        }
+        
+        .price-current {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ff88;
+        }
+        
+        .price-original {
+            font-size: 1rem;
+            color: #888;
+            text-decoration: line-through;
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        
+        .product-description {
+            font-size: 0.9rem;
+            color: #cccccc;
+            line-height: 1.4;
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        .container-fluid {
+            padding: 40px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        
+        /* Efectos para las imágenes de productos */
+        .tablet-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .phone-image {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .monitor-image {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .watch-image {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        
+        .camera-image {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .printer-image {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        /* Iconos de productos usando CSS */
+        .product-icon {
+            font-size: 4rem;
+            opacity: 0.8;
+            color: #ffffff;
+        }
+        
+        @media (max-width: 768px) {
+            .product-image {
+                height: 150px;
+            }
+            
+            .product-content {
+                padding: 15px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="section-title">Catálogo de Productos</h1>
+        
+        <div class="row g-4">
+            <!-- Producto 1 - Tablet -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card product-card">
+                    <div class="product-image tablet-image">
+                        <div class="product-icon">📱</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="price-current">$549.99</span>
+                            <span class="price-original">$1,200</span>
+                        </div>
+                        <h3 class="product-title">Tablet Pro 12.9"</h3>
+                        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt mauris eu risus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 2 - Smartphone -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card product-card">
+                    <div class="product-image phone-image">
+                        <div class="product-icon">📱</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="price-current">$549.99</span>
+                            <span class="price-original">$1,200</span>
+                        </div>
+                        <h3 class="product-title">Smartphone Ultra</h3>
+                        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt mauris eu risus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 3 - Tablet Compacta -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card product-card">
+                    <div class="product-image tablet-image">
+                        <div class="product-icon">📱</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="price-current">$549.99</span>
+                            <span class="price-original">$1,200</span>
+                        </div>
+                        <h3 class="product-title">Tablet Compacta</h3>
+                        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt mauris eu risus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 4 - Monitor Gaming -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card product-card">
+                    <div class="product-image monitor-image">
+                        <div class="product-icon">🖥️</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="price-current">$549.99</span>
+                            <span class="price-original">$1,200</span>
+                        </div>
+                        <h3 class="product-title">Monitor Gaming 27"</h3>
+                        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt mauris eu risus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 5 - Monitor Curvo -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card product-card">
+                    <div class="product-image monitor-image">
+                        <div class="product-icon">🖥️</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="price-current">$549.99</span>
+                            <span class="price-original">$1,200</span>
+                        </div>
+                        <h3 class="product-title">Monitor Curvo 32"</h3>
+                        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt mauris eu risus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 6 - Monitor Profesional -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card product-card">
+                    <div class="product-image monitor-image">
+                        <div class="product-icon">🖥️</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="price-current">$549.99</span>
+                            <span class="price-original">$1,200</span>
+                        </div>
+                        <h3 class="product-title">Monitor Profesional</h3>
+                        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt mauris eu risus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 7 - Smartwatch -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card product-card">
+                    <div class="product-image watch-image">
+                        <div class="product-icon">⌚</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="price-current">$549.99</span>
+                            <span class="price-original">$1,200</span>
+                        </div>
+                        <h3 class="product-title">Smartwatch Pro</h3>
+                        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt mauris eu risus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 8 - Cámara Digital -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card product-card">
+                    <div class="product-image camera-image">
+                        <div class="product-icon">📷</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="price-current">$549.99</span>
+                            <span class="price-original">$1,200</span>
+                        </div>
+                        <h3 class="product-title">Cámara Digital 4K</h3>
+                        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt mauris eu risus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 9 - Impresora -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card product-card">
+                    <div class="product-image printer-image">
+                        <div class="product-icon">🖨️</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="price-current">$549.99</span>
+                            <span class="price-original">$1,200</span>
+                        </div>
+                        <h3 class="product-title">Impresora Multifunción</h3>
+                        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt mauris eu risus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

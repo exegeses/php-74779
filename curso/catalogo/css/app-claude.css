@@ -1,0 +1,155 @@
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+/* header-nav */
+#m-logo{
+    width: 32px;
+}
+.a-menu{
+    transition: .3s;
+    border-bottom: 1px solid #222529;
+    opacity: .9;
+}
+.a-menu:hover{
+    border-bottom: 2px solid #73d1b2;
+    opacity: 1;
+}
+
+.btn-warning{
+    background-color: #45a887;
+    border-color: #368a6e;
+    font-weight: 500;
+    color: #fff;
+}
+.btn-warning:hover{
+    background-color: #67b89d;
+    border-color: #368a6e;
+    color: #fff;
+}
+
+
+.product-card {
+    background: linear-gradient(135deg, #2d2d2d 0%, #1f1f1f 100%);
+    border: 1px solid #3d3d3d;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    height: 100%;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: #555;
+}
+
+.product-image {
+    height: 200px;
+    background: linear-gradient(45deg, #333, #555);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    filter: brightness(0.9);
+}
+
+.price-current {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #00ff88;
+}
+
+.price-original {
+    font-size: 1rem;
+    color: #888;
+    text-decoration: line-through;
+}
+
+.product-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.marca-categoria {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: #cccccc;
+    line-height: 1.4;
+}
+
+.product-content {
+    padding: 20px;
+}
+
+.container-fluid {
+    padding: 40px 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+/* Efectos para las imágenes de productos */
+.tablet-image {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.phone-image {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.monitor-image {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.watch-image {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.camera-image {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.printer-image {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+/* Iconos de productos usando CSS */
+.product-icon {
+    font-size: 4rem;
+    opacity: 0.8;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .product-image {
+        height: 150px;
+    }
+
+    .product-content {
+        padding: 15px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
