@@ -6,7 +6,9 @@
 
     <main class="container py-4">
         <h1>Registro de usuario</h1>
-
+<?php
+        include 'layouts/notificaciones.php';
+?>
 
         <div class="alert p-4 col-8 mx-auto shadow">
             <form action="registrarUsuario.php" method="post">

@@ -32,11 +32,15 @@
             //notificaciones
             $_SESSION['css'] = 'success';
             $_SESSION['mensaje'] = 'Usuario: '.$nombre.' agregado correctamente';
+            //redirección a index
+            header('Location: formLogin.php');
         }catch ( Exception $e ) {
             //notificaciones
             $_SESSION['css'] = 'danger';
             $_SESSION['mensaje'] = 'No se pudo agregar el usuario: '.$nombre;
+            //redirección a formLogin
+            header('Location: formRegistrarUsuario.php');
         }
-        //redirección a index
-        header('Location: index.php');
+        /*//redirección a index
+        header('Location: index.php');*/
     }

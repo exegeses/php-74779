@@ -7,6 +7,10 @@
     <main class="container py-4">
         <h1>Ingreso a sistema</h1>
 
+<?php
+    include 'layouts/notificaciones.php';
+?>        
+        
         <div class="alert p-4 col-8 mx-auto shadow">
             <form action="login.php" method="post">
 
@@ -24,11 +28,20 @@
             </form>
         </div>
 
-
+<?php
+    if ( isset($_GET['error']) ){
+        $mensaje = match( $_GET['error'] ){
+            '1' => 'Nombre de usuario y/o clave incorrectas',
+            '2' => 'Debe lograrse para ingresar a la aplicación',
+            '3' => 'Otro mensaje'
+        }
+?>
         <div class="alert alert-danger p-4 col-8 mx-auto shadow">
-            <?= 'mensaje' ?>
+            <?= $mensaje ?>
         </div>
-
+<?php
+    }
+?>
     </main>
 
 <?php  include 'layouts/footer.php';  ?>
