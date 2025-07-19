@@ -106,6 +106,10 @@ main{
         height: 96px;
     }
 
+.img-activo{
+    width: 16px;
+}
+
 footer{
     position: fixed;
     bottom: 0px;

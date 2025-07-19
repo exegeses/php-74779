@@ -1,5 +1,17 @@
 <?php
 
+    function listarUsuarios() : mysqli_result
+    {
+        $link = conectar();
+        $sql = "SELECT 
+                        idUsuario, nombre, apellido, email, activo,  
+                        u.idRol, rol 
+                    FROM usuarios AS u
+                    INNER JOIN roles AS r 
+                        ON u.idRol = r.idRol";
+        return mysqli_query($link, $sql);
+    }
+
     /**
      * función de registro de usuarios
      * esta función da de alta un usuario
