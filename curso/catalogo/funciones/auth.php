@@ -64,3 +64,12 @@
         }
     }
 
+    /**
+     * función para chequear que el usuario sea administrador
+     */
+    function checkAdmin() : void
+    {
+        if( $_SESSION['idRol'] != 1 ){
+            header("Location: no-admin.php");
+        }
+    }

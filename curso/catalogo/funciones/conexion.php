@@ -1,9 +1,9 @@
 <?php
     ## función para conectar a servidor de MySQL
-    const SERVER = "localhost";
-    const USUARIO = "root";
-    const CLAVE = "root";
-    const BASE = "catalogo74779";
+    const SERVER = 'localhost';//'sql309.infinityfree.com';
+    const USUARIO = 'root';// 'if0_39565334';
+    const CLAVE = 'root';//'IYYeHLvmdzIu';
+    const BASE = 'catalogo74779';//'if0_39565334_catalogo';
 
 /**
  * función de conexion a Mysql
